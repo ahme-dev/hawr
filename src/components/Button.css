@@ -2,8 +2,11 @@
   background-color: mediumturquoise;
   color: #222;
 
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   padding: 1rem;
-
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

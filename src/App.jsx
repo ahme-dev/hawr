@@ -13,7 +13,9 @@ function App() {
         <Day></Day>
       </main>
       <footer>
-        <Button></Button>
+        <Button img={"#"} click={() => {}} text="About"></Button>
+        <Button img={"#"} click={() => {}} text="Location"></Button>
+        <Button img={"#"} click={() => {}} text="Colour"></Button>
       </footer>
     </div>
   );

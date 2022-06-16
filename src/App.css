@@ -1,6 +1,7 @@
 .App {
   height: 100vh;
-  width: 100vw;
+  max-width: 700px;
+  margin: auto;
 
   display: grid;
   grid-template-rows: 2fr 4fr 1fr;
@@ -13,7 +14,7 @@
 }
 
 header {
-  background-color: mediumturquoise;
+  background: linear-gradient(rgb(53, 168, 164), rgb(79, 177, 144));
 
   grid-template-rows: 1fr;
   border-bottom-right-radius: 50%;

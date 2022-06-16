@@ -1,6 +1,5 @@
 .Button {
-  background-color: mediumturquoise;
-  color: #222;
+  background: linear-gradient(rgb(53, 168, 164), rgb(79, 177, 144));
 
   border-radius: 1rem;
   padding: 1rem;

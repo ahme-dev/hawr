@@ -1,6 +1,7 @@
 import "./App.css";
 import Day from "./components/Day";
 import Button from "./components/Button";
+import settingsImg from "./images/settings.png";
 
 function App() {
   return (
@@ -13,9 +14,9 @@ function App() {
         <Day></Day>
       </main>
       <footer>
-        <Button img={"#"} click={() => {}} text="About"></Button>
-        <Button img={"#"} click={() => {}} text="Location"></Button>
-        <Button img={"#"} click={() => {}} text="Colour"></Button>
+        <Button image={settingsImg} click={() => {}}></Button>
+        <Button image={settingsImg} click={() => {}}></Button>
+        <Button image={settingsImg} click={() => {}}></Button>
       </footer>
     </div>
   );

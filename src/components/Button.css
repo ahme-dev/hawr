@@ -1,8 +1,9 @@
 .Button {
   background: linear-gradient(rgb(53, 168, 164), rgb(79, 177, 144));
 
-  border-radius: 1rem;
+  border-radius: 0.8rem;
   padding: 1rem;
+  margin: 0.5rem;
   cursor: pointer;
 
   display: flex;

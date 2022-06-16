@@ -1,14 +1,13 @@
 import "./Day.css";
-import cloudy from "../images/clouds.png";
 
-function Day() {
+function Day(props) {
   return (
     <div className="Day">
-      <img className="Day-img" src={cloudy}></img>
+      <img className="Day-img" src={props.image}></img>
       <div className="Day-text">
-        <h1>Cloudy</h1>
-        <h3>28*</h3>
-        <p>Sunday 28/6</p>
+        <h1>{props.status}</h1>
+        <h3>{props.temp}</h3>
+        <p>{props.date}</p>
       </div>
     </div>
   );

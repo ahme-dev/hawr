@@ -1,7 +1,15 @@
 .Day {
-  background-color: mediumturquoise;
   color: whitesmoke;
 
   border-radius: 0.5rem;
   padding: 1rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  width: 75%;
 }

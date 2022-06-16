@@ -16,9 +16,7 @@ header {
   background-color: mediumturquoise;
 
   grid-template-rows: 1fr;
-
-  border-bottom-right-radius: 1rem;
-  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 50%;
 }
 
 main {

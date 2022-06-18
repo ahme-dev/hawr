@@ -1,15 +1,17 @@
 .Day {
   flex-grow: 1;
-  padding: 1rem;
 
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   gap: 1rem;
 
-  border: solid 5px blue;
+  background: steelblue;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  padding: 2rem;
 }
 
 .Day-img {
-  width: 6rem;
+  width: 5rem;
 }

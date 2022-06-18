@@ -17,12 +17,6 @@ header {
   padding: 1rem;
 }
 
-header > * {
-  background-color: #222;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-}
-
 main {
   display: flex;
   flex-flow: row wrap-reverse;
@@ -41,14 +35,11 @@ footer {
   padding: 1rem;
 }
 
-footer > * {
+.clickable {
+  cursor: pointer;
   background-color: #222;
   border-radius: 0.5rem;
   padding: 0.5rem;
-}
-
-.clickable {
-  cursor: pointer;
 }
 
 img {

@@ -11,6 +11,10 @@
   background-color: rgb(34, 34, 34, 0.8);
 }
 
+.Visible {
+  visibility: visible;
+}
+
 .Popup-inner {
   background-color: #222;
   border: solid 0.3rem rgb(53, 168, 164);
@@ -28,7 +32,7 @@
   align-items: center;
 }
 
-.Popup-button {
+.Popup-close {
   background: linear-gradient(rgb(53, 168, 164), rgb(79, 177, 144));
   border-radius: 50%;
   width: 4rem;
@@ -39,7 +43,7 @@
   align-items: center;
 }
 
-.Popup-button img {
+.Popup-close > img {
   padding: 1rem;
   width: 100%;
 }

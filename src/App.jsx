@@ -7,9 +7,11 @@ import settingsImg from "./images/settings.png";
 import cloudy from "./images/clouds.png";
 
 function App() {
+  let [popup, setPopup] = React.useState("");
+
   return (
     <div className="App">
-      <Popup title="Languages" content="less"></Popup>
+      <Popup title="Languages" content="less" visibility={popup}></Popup>
 
       <header>
         <Day status="Sunny" temp="20*" date="Today 28/6" image={cloudy}></Day>

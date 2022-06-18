@@ -27,3 +27,9 @@ main {
 footer {
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+a,
+button {
+  color: inherit;
+  border: none;
+}

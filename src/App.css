@@ -6,7 +6,7 @@
   display: grid;
   grid-template-rows: 1fr 8fr 1fr;
 
-  background-color: steelblue;
+  background-color: royalblue;
 }
 
 header {
@@ -20,8 +20,9 @@ header {
 main {
   display: flex;
   flex-flow: row wrap-reverse;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
+  gap: 1rem;
 
   padding: 1rem;
   background-color: #222;

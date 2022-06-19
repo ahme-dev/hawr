@@ -6,7 +6,6 @@
   justify-content: center;
   gap: 2rem;
 
-  background: linear-gradient(45deg, darkcyan, lightseagreen);
   border-radius: 0.5rem;
 }
 
@@ -15,4 +14,20 @@
   border-radius: 0.5rem;
   padding: 1rem;
   width: 7rem;
+}
+
+.theme-blue {
+  background: linear-gradient(45deg, darkcyan, lightseagreen);
+}
+
+.theme-red {
+  background: linear-gradient(45deg, crimson, orangered);
+}
+
+.theme-yellow {
+  background: linear-gradient(45deg, rgb(180, 144, 44), rgb(189, 171, 17));
+}
+
+.theme-green {
+  background: linear-gradient(45deg, olivedrab, rgb(29, 184, 94));
 }

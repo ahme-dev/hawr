@@ -12,6 +12,17 @@ import sunnyImg from "./images/sunny.png";
 import noneImg from "./images/none.png";
 
 function App() {
+  let [theme, setTheme] = React.useState(0);
+
+  let randomTheme = () => {
+    while (true) {
+      let randNum = Math.floor(Math.random() * 4);
+      if (theme === randNum) continue;
+      setTheme(() => randNum);
+      return;
+    }
+  };
+
   let [weather, setWeather] = React.useState({
     first: {
       date: "ئەمڕۆ",
@@ -82,24 +93,28 @@ function App() {
           temp={weather.first.temprature}
           date={weather.first.date}
           image={weather.first.image}
+          theme={theme}
         ></Day>
         <Day
           status={weather.second.status}
           temp={weather.second.temprature}
           date={weather.second.date}
           image={weather.first.image}
+          theme={theme}
         ></Day>
         <Day
           status={weather.third.status}
           temp={weather.third.temprature}
           date={weather.third.date}
           image={weather.first.image}
+          theme={theme}
         ></Day>
       </main>
       <footer>
         <h1 onClick={changeWeather} className="clickable">
           شوێن
         </h1>
+
         <div>
           <img
             src={sourceImg}
@@ -108,7 +123,14 @@ function App() {
             }}
             className="clickable"
           ></img>
-          <img src={themeImg} className="clickable"></img>
+
+          <img
+            onClick={() => {
+              randomTheme();
+            }}
+            src={themeImg}
+            className="clickable"
+          ></img>
         </div>
       </footer>
     </div>

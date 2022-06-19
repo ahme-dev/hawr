@@ -6,7 +6,8 @@
   justify-content: space-evenly;
   gap: 1rem;
 
-  background: royalblue;
+  background: linear-gradient(mediumpurple, mediumslateblue);
+  background-color: mediumbl;
   border-radius: 0.5rem;
   padding: 2rem;
 }

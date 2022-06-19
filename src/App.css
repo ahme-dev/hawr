@@ -23,10 +23,9 @@ header > div {
 
 main {
   display: flex;
-  flex-flow: row wrap-reverse;
+  flex-flow: row wrap;
   justify-content: space-evenly;
-  align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 
   padding: 1rem;
 }

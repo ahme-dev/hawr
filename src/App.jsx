@@ -15,7 +15,7 @@ function App() {
   let [location, setLocation] = React.useState("Slemani");
 
   let [theme, setTheme] = React.useState(() => {
-    const saved = localStorage.getItem("theme");
+    const saved = localStorage.getItem("themeLocal");
     const val = JSON.parse(saved);
     return val || 0;
   });
@@ -30,28 +30,34 @@ function App() {
   };
 
   React.useEffect(() => {
-    localStorage.setItem("theme", theme);
+    localStorage.setItem("themeLocal", theme);
   }, [theme]);
 
-  let [weather, setWeather] = React.useState({
-    first: {
-      date: "ئەمڕۆ",
-      status: "نەزانراو",
-      temprature: "?",
-      image: noneImg,
-    },
-    second: {
-      date: "سبەی",
-      status: "نەزانراو",
-      temprature: "?",
-      image: noneImg,
-    },
-    third: {
-      date: "دووسبەی",
-      status: "نەزانراو",
-      temprature: "?",
-      image: noneImg,
-    },
+  let [weather, setWeather] = React.useState(() => {
+    const saved = localStorage.getItem("weatherLocal");
+    const val = JSON.parse(saved);
+    return (
+      val || {
+        first: {
+          date: "ئەمڕۆ",
+          status: "نەزانراو",
+          temprature: "?",
+          image: noneImg,
+        },
+        second: {
+          date: "سبەی",
+          status: "نەزانراو",
+          temprature: "?",
+          image: noneImg,
+        },
+        third: {
+          date: "دووسبەی",
+          status: "نەزانراو",
+          temprature: "?",
+          image: noneImg,
+        },
+      }
+    );
   });
 
   let changeWeather = async () => {
@@ -88,6 +94,10 @@ function App() {
       };
     });
   };
+
+  React.useEffect(() => {
+    localStorage.setItem("weatherLocal", JSON.stringify(weather));
+  }, [weather]);
 
   return (
     <div className="App">

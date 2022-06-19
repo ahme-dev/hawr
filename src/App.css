@@ -27,7 +27,7 @@ main {
   justify-content: space-evenly;
   gap: 2rem;
 
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 footer {
@@ -56,7 +56,7 @@ footer > div {
 }
 
 img {
-  width: 3.5rem;
+  width: 3rem;
 }
 
 a,

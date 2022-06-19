@@ -3,29 +3,31 @@ import React from "react";
 import "./App.css";
 import Day from "./components/Day";
 import apiCall from "./api";
+import translPhrase from "./transl";
 
 import themeImg from "./images/theme.png";
 import iconImg from "./images/icon.png";
 import sourceImg from "./images/source.png";
+import sunnyImg from "./images/sunny.png";
 import noneImg from "./images/none.png";
 
 function App() {
   let [weather, setWeather] = React.useState({
     first: {
       date: "ئەمڕۆ",
-      status: "Unknown",
+      status: "نەزانراو",
       temprature: "?",
       image: noneImg,
     },
     second: {
       date: "سبەی",
-      status: "Unknown",
+      status: "نەزانراو",
       temprature: "?",
       image: noneImg,
     },
     third: {
       date: "دووسبەی",
-      status: "Unknown",
+      status: "نەزانراو",
       temprature: "?",
       image: noneImg,
     },
@@ -40,18 +42,27 @@ function App() {
       return {
         first: {
           date: "ئەمڕۆ",
-          status: info["forecast"]["forecastday"][0]["day"].condition.text,
+          status: translPhrase(
+            info["forecast"]["forecastday"][0]["day"].condition.text
+          ),
           temprature: info["forecast"]["forecastday"][0]["day"].avgtemp_c,
+          image: sunnyImg,
         },
         second: {
           date: "سبەی",
-          status: info["forecast"]["forecastday"][1]["day"].condition.text,
+          status: translPhrase(
+            info["forecast"]["forecastday"][1]["day"].condition.text
+          ),
           temprature: info["forecast"]["forecastday"][1]["day"].avgtemp_c,
+          image: sunnyImg,
         },
         third: {
           date: "دووسبەی",
-          status: info["forecast"]["forecastday"][2]["day"].condition.text,
+          status: translPhrase(
+            info["forecast"]["forecastday"][2]["day"].condition.text
+          ),
           temprature: info["forecast"]["forecastday"][2]["day"].avgtemp_c,
+          image: sunnyImg,
         },
       };
     });
@@ -61,8 +72,8 @@ function App() {
     <div className="App">
       <header>
         <div className="clickable">
-          <h1>هەور</h1>
           <img src={iconImg}></img>
+          <h1>هەور</h1>
         </div>
       </header>
       <main>
@@ -86,13 +97,13 @@ function App() {
         ></Day>
       </main>
       <footer>
+        <h1 onClick={changeWeather} className="clickable">
+          شوێن
+        </h1>
         <div>
           <img src={sourceImg} className="clickable"></img>
           <img src={themeImg} className="clickable"></img>
         </div>
-        <h1 onClick={changeWeather} className="clickable">
-          شوێن
-        </h1>
       </footer>
     </div>
   );

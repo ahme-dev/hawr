@@ -32,24 +32,26 @@ function App() {
   });
 
   let changeWeather = async () => {
-    let fetched = await apiCall();
+    let info = await apiCall();
+
+    if (info === false) return;
 
     setWeather(() => {
       return {
         first: {
           date: "ئەمڕۆ",
-          status: fetched["current"].condition.text,
-          temprature: fetched["current"].temp_c,
+          status: info["forecast"]["forecastday"][0]["day"].condition.text,
+          temprature: info["forecast"]["forecastday"][0]["day"].avgtemp_c,
         },
         second: {
           date: "سبەی",
-          status: fetched["forecast"]["forecastday"][1]["day"].condition.text,
-          temprature: fetched["forecast"]["forecastday"][1]["day"].avgtemp_c,
+          status: info["forecast"]["forecastday"][1]["day"].condition.text,
+          temprature: info["forecast"]["forecastday"][1]["day"].avgtemp_c,
         },
         third: {
           date: "دووسبەی",
-          status: fetched["forecast"]["forecastday"][2]["day"].condition.text,
-          temprature: fetched["forecast"]["forecastday"][2]["day"].avgtemp_c,
+          status: info["forecast"]["forecastday"][2]["day"].condition.text,
+          temprature: info["forecast"]["forecastday"][2]["day"].avgtemp_c,
         },
       };
     });

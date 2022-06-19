@@ -7,7 +7,7 @@ function Day(props) {
       <div className="Day-text">
         <h1>{props.status}</h1>
         <h3>{props.temp}</h3>
-        <p>{props.date}</p>
+        <h2>{props.date}</h2>
       </div>
     </div>
   );

@@ -3,15 +3,15 @@
 
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  gap: 1rem;
+  justify-content: center;
+  gap: 2rem;
 
-  background: linear-gradient(mediumpurple, mediumslateblue);
-  background-color: mediumbl;
+  background: linear-gradient(45deg, darkcyan, lightseagreen);
   border-radius: 0.5rem;
-  padding: 2rem;
 }
 
 .Day-img {
-  width: 5rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  width: 6rem;
 }

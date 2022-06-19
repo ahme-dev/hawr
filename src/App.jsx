@@ -68,27 +68,30 @@ function App() {
     setWeather(() => {
       return {
         first: {
-          date: "ئەمڕۆ",
+          day: "ئەمڕۆ",
+          date: info["forecast"]["forecastday"][0].date,
           status: translPhrase(
-            info["forecast"]["forecastday"][0]["day"].condition.text
+            info["forecast"]["forecastday"][0].day.condition.text
           ),
-          temprature: info["forecast"]["forecastday"][0]["day"].avgtemp_c,
+          temprature: info["forecast"]["forecastday"][0].day.avgtemp_c,
           image: sunnyImg,
         },
         second: {
-          date: "سبەی",
+          day: "سبەی",
+          date: info["forecast"]["forecastday"][1].date,
           status: translPhrase(
-            info["forecast"]["forecastday"][1]["day"].condition.text
+            info["forecast"]["forecastday"][1].day.condition.text
           ),
-          temprature: info["forecast"]["forecastday"][1]["day"].avgtemp_c,
+          temprature: info["forecast"]["forecastday"][1].day.avgtemp_c,
           image: sunnyImg,
         },
         third: {
-          date: "دووسبەی",
+          day: "دووسبەی",
+          date: info["forecast"]["forecastday"][2].date,
           status: translPhrase(
-            info["forecast"]["forecastday"][2]["day"].condition.text
+            info["forecast"]["forecastday"][2].day.condition.text
           ),
-          temprature: info["forecast"]["forecastday"][2]["day"].avgtemp_c,
+          temprature: info["forecast"]["forecastday"][2].day.avgtemp_c,
           image: sunnyImg,
         },
       };
@@ -111,6 +114,7 @@ function App() {
         <Day
           status={weather.first.status}
           temp={weather.first.temprature}
+          day={weather.first.day}
           date={weather.first.date}
           image={weather.first.image}
           theme={theme}
@@ -118,15 +122,17 @@ function App() {
         <Day
           status={weather.second.status}
           temp={weather.second.temprature}
+          day={weather.second.day}
           date={weather.second.date}
-          image={weather.first.image}
+          image={weather.second.image}
           theme={theme}
         ></Day>
         <Day
           status={weather.third.status}
           temp={weather.third.temprature}
+          day={weather.third.day}
           date={weather.third.date}
-          image={weather.first.image}
+          image={weather.third.image}
           theme={theme}
         ></Day>
       </main>

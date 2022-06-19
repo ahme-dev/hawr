@@ -48,11 +48,11 @@ footer > div {
 .clickable {
   cursor: pointer;
   padding: 0.5rem;
-  border-bottom: dotted 3px rgba(0, 0, 0, 0);
+  border-bottom: dotted 5px rgba(0, 0, 0, 0);
 }
 
 .clickable:hover {
-  border-bottom: dotted 3px whitesmoke;
+  border-bottom: dotted 5px whitesmoke;
 }
 
 img {

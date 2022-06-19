@@ -10,7 +10,8 @@ function Day(props) {
       <div className="Day-text">
         <h1>{props.status}</h1>
         <h3>{props.temp}</h3>
-        <h2>{props.date}</h2>
+        <h2>{props.day}</h2>
+        <p>{props.date.slice(5, 10)}</p>
       </div>
     </div>
   );

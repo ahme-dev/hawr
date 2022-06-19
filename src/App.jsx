@@ -101,7 +101,13 @@ function App() {
           شوێن
         </h1>
         <div>
-          <img src={sourceImg} className="clickable"></img>
+          <img
+            src={sourceImg}
+            onClick={() => {
+              window.open("https://github.com/ahmedkabd/hawr");
+            }}
+            className="clickable"
+          ></img>
           <img src={themeImg} className="clickable"></img>
         </div>
       </footer>

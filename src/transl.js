@@ -1,8 +1,11 @@
-let translation = [{ phrase: "Sunny", to: "هەتاو" }, {}];
+let translation = [
+  { phrase: "Sunny", to: "هەتاو" },
+  { phrase: "Slemani", to: "سلێمانی" },
+];
 
 function transl(phrase) {
-  const found = translation.find((o) => o.phrase === phrase);
-  return found.to;
+  const found = translation.find((el) => el.phrase === phrase);
+  return found == "" ? phrase : found.to;
 }
 
 export default transl;

@@ -2,7 +2,7 @@ import React from "react";
 
 import "./App.css";
 import Day from "./components/Day";
-import apiCall from "./api";
+import apiForecast from "./api";
 import translPhrase from "./transl";
 
 import themeImg from "./images/theme.png";
@@ -12,7 +12,13 @@ import sunnyImg from "./images/sunny.png";
 import noneImg from "./images/none.png";
 
 function App() {
-  let [theme, setTheme] = React.useState(0);
+  let [location, setLocation] = React.useState("Slemani");
+
+  let [theme, setTheme] = React.useState(() => {
+    const saved = localStorage.getItem("theme");
+    const val = JSON.parse(saved);
+    return val || 0;
+  });
 
   let randomTheme = () => {
     while (true) {
@@ -22,6 +28,10 @@ function App() {
       return;
     }
   };
+
+  React.useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   let [weather, setWeather] = React.useState({
     first: {
@@ -45,7 +55,7 @@ function App() {
   });
 
   let changeWeather = async () => {
-    let info = await apiCall();
+    let info = await apiForecast();
 
     if (info === false) return;
 
@@ -112,23 +122,23 @@ function App() {
       </main>
       <footer>
         <h1 onClick={changeWeather} className="clickable">
-          شوێن
+          {translPhrase(location)}
         </h1>
 
         <div>
-          <img
-            src={sourceImg}
-            onClick={() => {
-              window.open("https://github.com/ahmedkabd/hawr");
-            }}
-            className="clickable"
-          ></img>
-
           <img
             onClick={() => {
               randomTheme();
             }}
             src={themeImg}
+            className="clickable"
+          ></img>
+
+          <img
+            src={sourceImg}
+            onClick={() => {
+              window.open("https://github.com/ahmedkabd/hawr");
+            }}
             className="clickable"
           ></img>
         </div>

@@ -6,7 +6,9 @@ let themes = ["blue", "red", "green", "yellow"];
 function Day(props) {
   return (
     <div className={`Day clickable theme-${themes[props.theme]}`}>
-      <img className="Day-img" src={props.image}></img>
+      <div className="Day-img">
+        <img src={props.image}></img>
+      </div>
       <div className="Day-text">
         <h1>{props.status}</h1>
         <h3>{props.temp}</h3>

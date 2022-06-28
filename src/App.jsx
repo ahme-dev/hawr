@@ -3,7 +3,7 @@ import React from "react";
 import "./App.css";
 import Day from "./components/Day";
 import Popup from "./components/Popup";
-import apiForecast from "./api";
+import { apiForecast, apiLocation } from "./api";
 import translPhrase from "./transl";
 
 import themeImg from "./images/theme.png";
@@ -102,6 +102,19 @@ function App() {
     });
   };
 
+  let getLocation = async (n) => {
+    let info = await apiLocation(n);
+
+    if (info === false) return;
+
+    let responses = [];
+    info.map((e) => {
+      responses.push(e.name + " " + e.country);
+    });
+
+    setLocations(() => responses);
+  };
+
   React.useEffect(() => {
     localStorage.setItem("weatherLocal", JSON.stringify(weather));
   }, [weather]);
@@ -171,7 +184,7 @@ function App() {
       <Popup
         on={popup}
         items={locations}
-        search={(n) => setLocations(() => [n])}
+        search={(n) => getLocation(n)}
         select={(n) => alert(n)}
         close={() => setPopup(() => false)}
         theme={theme}

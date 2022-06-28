@@ -2,6 +2,7 @@ import React from "react";
 
 import "./App.css";
 import Day from "./components/Day";
+import Popup from "./components/Popup";
 import apiForecast from "./api";
 import translPhrase from "./transl";
 
@@ -12,6 +13,8 @@ import sunnyImg from "./images/sunny.png";
 import noneImg from "./images/none.png";
 
 function App() {
+  const [popup, setPopup] = React.useState(false);
+
   let [location, setLocation] = React.useState("Slemani");
 
   let [theme, setTheme] = React.useState(() => {
@@ -39,19 +42,19 @@ function App() {
     return (
       val || {
         first: {
-          date: "ئەمڕۆ",
+          day: "ئەمڕۆ",
           status: "نەزانراو",
           temprature: "?",
           image: noneImg,
         },
         second: {
-          date: "سبەی",
+          day: "سبەی",
           status: "نەزانراو",
           temprature: "?",
           image: noneImg,
         },
         third: {
-          date: "دووسبەی",
+          day: "دووسبەی",
           status: "نەزانراو",
           temprature: "?",
           image: noneImg,
@@ -137,7 +140,12 @@ function App() {
         ></Day>
       </main>
       <footer>
-        <h1 onClick={changeWeather} className="clickable">
+        <h1
+          onClick={() => {
+            setPopup(() => true);
+          }}
+          className="clickable"
+        >
           {translPhrase(location)}
         </h1>
 
@@ -159,6 +167,14 @@ function App() {
           ></img>
         </div>
       </footer>
+      <Popup
+        on={popup}
+        items={[]}
+        search={(i) => alert(i)}
+        select={(n) => alert(n)}
+        close={() => setPopup(() => false)}
+        theme={theme}
+      ></Popup>
     </div>
   );
 }

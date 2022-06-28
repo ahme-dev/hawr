@@ -21,22 +21,28 @@ function Popup(props) {
             ></input>
           </div>
           <div className="Popup-result">
-            {props.items.map((item) => (
-              <h3
-                onClick={() => {
-                  props.select(item);
-                }}
-              >
-                {item}
-              </h3>
-            ))}
+            {props.items.map((item) =>
+              item ? (
+                <h3
+                  onClick={() => {
+                    props.select(item);
+                  }}
+                >
+                  {item}
+                </h3>
+              ) : (
+                false
+              )
+            )}
           </div>
         </div>
         <div className="Popup-close">
           <button
             onClick={props.close}
             className={`Popup-content theme-${themes[props.theme]}`}
-          ></button>
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>

@@ -67,8 +67,8 @@ function App() {
     );
   });
 
-  let changeWeather = async () => {
-    let info = await apiForecast();
+  let changeWeather = async (location) => {
+    let info = await apiForecast(location);
 
     if (info === false) return;
 
@@ -105,14 +105,14 @@ function App() {
     });
   };
 
-  let getLocation = async (n) => {
-    let info = await apiLocation(n);
+  let getLocation = async (searchTerm) => {
+    let info = await apiLocation(searchTerm);
 
     if (info === false) return;
 
     let responses = [];
-    info.map((e) => {
-      responses.push(e.name + " " + e.country);
+    info.map((searchElement) => {
+      responses.push(searchElement.name);
     });
 
     setLocations(() => responses);
@@ -121,6 +121,11 @@ function App() {
   React.useEffect(() => {
     localStorage.setItem("weatherLocal", JSON.stringify(weather));
   }, [weather]);
+
+  function changeLocation(location) {
+    setLocation(() => location);
+    changeWeather(location);
+  }
 
   return (
     <div className="App">
@@ -188,7 +193,7 @@ function App() {
         on={popup}
         items={locations}
         search={(n) => getLocation(n)}
-        select={(n) => alert(n)}
+        select={changeLocation}
         close={() => setPopup(() => false)}
         theme={theme}
       ></Popup>

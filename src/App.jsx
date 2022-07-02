@@ -44,18 +44,21 @@ function App() {
       val || {
         first: {
           day: "ئەمڕۆ",
+          date: "?",
           status: "نەزانراو",
           temprature: "?",
           image: noneImg,
         },
         second: {
           day: "سبەی",
+          date: "?",
           status: "نەزانراو",
           temprature: "?",
           image: noneImg,
         },
         third: {
           day: "دووسبەی",
+          date: "?",
           status: "نەزانراو",
           temprature: "?",
           image: noneImg,

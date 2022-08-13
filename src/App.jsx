@@ -16,7 +16,7 @@ function App() {
   const [popup, setPopup] = React.useState(false);
 
   let [location, setLocation] = React.useState("Slemani");
-  let [locations, setLocations] = React.useState(["بە لاتینی بگەڕێ"]);
+  let [locations, setLocations] = React.useState([]);
 
   let [theme, setTheme] = React.useState(() => {
     const saved = localStorage.getItem("themeLocal");

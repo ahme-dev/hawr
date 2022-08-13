@@ -18,6 +18,7 @@ function Popup(props) {
               type="text"
               value={input}
               onInput={(e) => setInput(e.target.value)}
+              placeholder="بە لاتینی بگەڕێ"
             ></input>
           </div>
           <div className="Popup-result">

@@ -26,6 +26,9 @@
 .Popup-content {
   border-radius: 1rem;
   padding: 1rem;
+
+  max-height: 80vh;
+  overflow: scroll;
 }
 
 .Popup-search input {
@@ -38,8 +41,6 @@
 }
 
 .Popup-result {
-  overflow: scroll;
-
   padding: 1rem;
   text-align: center;
 

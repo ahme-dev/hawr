@@ -1,6 +1,6 @@
-![Repo Size](https://img.shields.io/github/repo-size/ahmedkabd/hawr?style=flat-square)
-![Code Lines](https://img.shields.io/tokei/lines/github/ahmedkabd/hawr?style=flat-square)
-![GitHub](https://img.shields.io/github/license/ahmedkabd/hawr?style=flat-square)
+![Repo Size](https://img.shields.io/github/repo-size/ahmedkapro/hawr?style=flat-square)
+![Code Lines](https://img.shields.io/tokei/lines/github/ahmedkapro/hawr?style=flat-square)
+![GitHub](https://img.shields.io/github/license/ahmedkapro/hawr?style=flat-square)
 
 # Hawr
 

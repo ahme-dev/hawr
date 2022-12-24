@@ -8,23 +8,49 @@ import {
 	CardHeader,
 } from "@mui/material";
 
+import { useQuery } from "react-query";
+let key = "74dd9c2c03d4438da6f184612221806";
+let location = "Slemani";
+
 export function Weather() {
+	const { isLoading, error, data } = useQuery("repoData", () =>
+		fetch(
+			`https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${location}&days=3&aqi=no&alerts=no`
+		).then((res) => res.json())
+	);
+
+	if (isLoading) return "Loading data...";
+
+	if (error) return "Could not load the data!";
+
 	return (
 		<Grid container spacing={2} sx={{ width: "100%" }}>
 			<Grid item xs={12} sm={6} md={4}>
-				<WeatherDay day="Today"></WeatherDay>
+				<Day
+					day="Today"
+					status={data.forecast.forecastday[0].day.condition.text}
+					image={data.forecast.forecastday[0].day.condition.icon}
+				></Day>
 			</Grid>
 			<Grid item xs={12} sm={6} md={4}>
-				<WeatherDay day="Tomorrow"></WeatherDay>
+				<Day
+					day="Tomorrow"
+					status={data.forecast.forecastday[1].day.condition.text}
+					image={data.forecast.forecastday[1].day.condition.icon}
+				></Day>
 			</Grid>
 			<Grid item xs={12} sm={6} md={4}>
-				<WeatherDay day="Overmorrow"></WeatherDay>
+				<Day
+					day="Overmorrow"
+					status={data.forecast.forecastday[2].day.condition.text}
+					image={data.forecast.forecastday[2].day.condition.icon}
+				></Day>
 			</Grid>
 		</Grid>
 	);
 }
 
-function WeatherDay(props) {
+function Day(props) {
 	return (
 		<Card>
 			<CardHeader
@@ -32,7 +58,7 @@ function WeatherDay(props) {
 				subheader={props.date ? props.date.slice(5, 10) : "Date Unknown"}
 			></CardHeader>
 			<CardMedia
-				sx={{ height: 140 }}
+				sx={{ height: "12rem" }}
 				image={props.image || "#"}
 				title="green iguana"
 			/>

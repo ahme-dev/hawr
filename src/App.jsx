@@ -1,6 +1,5 @@
 import React from "react";
 
-import "./App.css";
 import {Day} from "./components/Day";
 import {Popup} from "./components/Popup";
 import { apiForecast, apiLocation } from "./api";

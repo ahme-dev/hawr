@@ -3,7 +3,7 @@ import "./Popup.css";
 
 let themes = ["blue", "red", "green", "yellow"];
 
-function Popup(props) {
+export function Popup(props) {
   const [input, setInput] = useState("");
 
   return props.on ? (
@@ -51,5 +51,3 @@ function Popup(props) {
     false
   );
 }
-
-export default Popup;

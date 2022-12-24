@@ -3,7 +3,7 @@ import "./Day.css";
 
 let themes = ["blue", "red", "green", "yellow"];
 
-function Day(props) {
+export function Day(props) {
   return (
     <div className={`Day clickable theme-${themes[props.theme]}`}>
       <div className="Day-img">
@@ -18,5 +18,3 @@ function Day(props) {
     </div>
   );
 }
-
-export default Day;

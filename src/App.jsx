@@ -1,8 +1,8 @@
 import React from "react";
 
 import "./App.css";
-import Day from "./components/Day";
-import Popup from "./components/Popup";
+import {Day} from "./components/Day";
+import {Popup} from "./components/Popup";
 import { apiForecast, apiLocation } from "./api";
 import translPhrase from "./transl";
 
@@ -12,7 +12,7 @@ import sourceImg from "./images/source.png";
 import sunnyImg from "./images/sunny.png";
 import noneImg from "./images/none.png";
 
-function App() {
+export default function App() {
   const [popup, setPopup] = React.useState(false);
 
   let [location, setLocation] = React.useState("Slemani");
@@ -200,5 +200,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

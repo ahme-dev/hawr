@@ -1,10 +1,12 @@
 import { Autocomplete, TextField } from "@mui/material";
 
-export function SearchBar() {
+export function Search() {
 	return (
 		<Autocomplete
 			options={[{ label: "None" }]}
-			renderInput={(params) => <TextField {...params} label="Location" />}
+			renderInput={(params) => (
+				<TextField variant="filled" {...params} label="Location" />
+			)}
 		/>
 	);
 }

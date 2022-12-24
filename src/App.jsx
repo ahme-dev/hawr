@@ -3,7 +3,7 @@ import { Container, Box, CssBaseline } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import { Weather } from "./components/Weather";
-import { SearchBar } from "./components/Search";
+import { Search } from "./components/Search";
 
 export default function App() {
 	return (
@@ -12,6 +12,7 @@ export default function App() {
 				sx={{
 					display: "flex",
 					flexDirection: "column",
+					justifyContent: "space-between",
 					gap: "3rem",
 					padding: "1rem",
 					minHeight: "100vh",
@@ -20,6 +21,7 @@ export default function App() {
 			>
 				<CssBaseline />
 
+				{/* Header */}
 				<Box
 					sx={{
 						display: "flex",
@@ -28,9 +30,13 @@ export default function App() {
 					}}
 				>
 					<h2>Hawr</h2>
-					<SearchBar></SearchBar>
+					<Search></Search>
 				</Box>
+
+				{/* Main */}
 				<Weather></Weather>
+
+				{/* Footer */}
 				<Box sx={{ display: "flex", justifyContent: "center" }}>
 					<p>Footer</p>
 				</Box>

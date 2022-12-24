@@ -1,17 +1,24 @@
 import React from "react";
-import { Grid, Card } from "@mui/material";
+import {
+	Grid,
+	Card,
+	CardMedia,
+	CardContent,
+	Typography,
+	CardHeader,
+} from "@mui/material";
 
 export function Weather() {
 	return (
 		<Grid container spacing={2} sx={{ width: "100%" }}>
 			<Grid item xs={12} sm={6} md={4}>
-				<WeatherDay day="today"></WeatherDay>
+				<WeatherDay day="Today"></WeatherDay>
 			</Grid>
 			<Grid item xs={12} sm={6} md={4}>
-				<WeatherDay day="tomorrow"></WeatherDay>
+				<WeatherDay day="Tomorrow"></WeatherDay>
 			</Grid>
 			<Grid item xs={12} sm={6} md={4}>
-				<WeatherDay day="overmorrow"></WeatherDay>
+				<WeatherDay day="Overmorrow"></WeatherDay>
 			</Grid>
 		</Grid>
 	);
@@ -20,16 +27,23 @@ export function Weather() {
 function WeatherDay(props) {
 	return (
 		<Card>
-			<div>
-				<img src={props.image || "#"}></img>
-			</div>
-
-			<div>
-				<h1>{props.status || "?"}</h1>
-				<h3>{props.temp || "?"}</h3>
-				<h2>{props.day || "?"}</h2>
-				<p>{props.date ? props.date.slice(5, 10) : "?"}</p>
-			</div>
+			<CardHeader
+				title={props.day || "Day Unknown"}
+				subheader={props.date ? props.date.slice(5, 10) : "Date Unknown"}
+			></CardHeader>
+			<CardMedia
+				sx={{ height: 140 }}
+				image={props.image || "#"}
+				title="green iguana"
+			/>
+			<CardContent>
+				<Typography gutterBottom variant="h5" component="div">
+					{props.status || "Weather Unknown"}
+				</Typography>
+				<Typography variant="body" color="text.secondary">
+					{props.temp || "Temperature Unknown"}
+				</Typography>
+			</CardContent>
 		</Card>
 	);
 }

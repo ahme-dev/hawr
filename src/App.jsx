@@ -5,6 +5,9 @@ import { Weather } from "./components/Weather";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 
+// font
+import FontNRT from "./assets/NRTreg.woff";
+
 // translation
 import { useTranslation } from "react-i18next";
 
@@ -27,27 +30,41 @@ export default function App() {
 		i18n.changeLanguage(lang);
 	}, [lang]);
 
+	const appTheme = createTheme({
+		palette: { mode: darkMode ? "dark" : "light" },
+		typography: { fontFamily: "NRT Regular" },
+		components: {
+			MuiCssBaseline: {
+				styleOverrides: `
+					@font-face {
+						font-family: 'NRT Regular';
+						font-style: normal;
+						font-display: swap;
+						font-weight: 400;
+						src: local('NRT'), local('NRT-Regular'), url(${FontNRT}) format('woff');
+					}
+				`,
+			},
+		},
+	});
+
+	const containerStyle = {
+		direction: lang === "en" ? "ltr" : "rtl",
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "space-between",
+		gap: "3rem",
+		padding: "1rem",
+		minHeight: "100vh",
+		"&>*": { width: "100%" },
+	};
+
 	return (
 		<QueryClientProvider client={queryClient}>
-			<ThemeProvider
-				theme={createTheme({ palette: { mode: darkMode ? "dark" : "light" } })}
-			>
-				<Container
-					sx={{
-						direction: lang === "en" ? "ltr" : "rtl",
-						display: "flex",
-						flexDirection: "column",
-						justifyContent: "space-between",
-						gap: "3rem",
-						padding: "1rem",
-						minHeight: "100vh",
-						"&>*": { width: "100%" },
-					}}
-				>
-					{/* CSS Reset */}
+			<ThemeProvider theme={appTheme}>
+				<Container sx={containerStyle}>
 					<CssBaseline />
 
-					{/* Content */}
 					<Header></Header>
 					<Weather></Weather>
 					<Footer></Footer>

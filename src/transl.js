@@ -18,6 +18,7 @@ const resources = {
 			"Partly cloudy": "هەندێک هەور",
 			Cloudy: "هەور",
 			Overcast: "بەتەواوی هەور",
+			"Patchy rain possible": 'بەئەگەر بارانی کەم',
 			"Patchy light rain": "بارانی کەم",
 			"Patchy rain": "بارانی کەم",
 			"light rain": "بارانی کەم",

@@ -2,8 +2,12 @@ import React from "react";
 import { Grid, Box, CircularProgress } from "@mui/material";
 import { WeatherDay } from "./WeatherDay";
 
-import { location, apiKey, organizeAPIData } from "../utils";
+import { fetchForecast } from "../fetch";
 import { useQuery } from "react-query";
+
+// store
+import { useAtom } from "jotai";
+import { locationAtom } from "../store";
 
 export function Weather() {
 	const colCenterStyle = {
@@ -12,13 +16,12 @@ export function Weather() {
 		alignItems: "center",
 	};
 
-	const { isLoading, error, data } = useQuery("forecast", () =>
-		fetch(
-			`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`
-		)
-			.then((res) => res.json())
-			.then((data) => organizeAPIData(data))
-	);
+	const [location] = useAtom(locationAtom);
+
+	// call lang change on startup and atom change
+	const { isLoading, error, data } = useQuery(["forecast", location], () => {
+		return fetchForecast(location);
+	});
 
 	// Render
 

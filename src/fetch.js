@@ -1,20 +1,27 @@
 // free api key. steal as you like
 export let apiKey = "74dd9c2c03d4438da6f184612221806";
-export let location = "Slemani";
 
-export async function apiLocation(location = "Slemani") {
-	let url = `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${location}`;
+// fetch functions
 
-	const response = await fetch(url);
-	if (response.status !== 200) {
-		return false;
-	}
+export const fetchForecast = (location) => {
+	return fetch(
+		`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`
+	)
+		.then((res) => res.json())
+		.then((data) => organizeAPIData(data));
+};
 
-	const data = await response.json();
+export const fetchLocations = async (searchFor) => {
+	const res = await fetch(
+		`https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${searchFor}`
+	);
+	const data = await res.json();
 	return data;
-}
+};
 
-// Tidy the Data gotten from api
+// other functions
+
+// tidy the Data gotten from api
 export const organizeAPIData = (data) => {
 	// console.log(data);
 	return {

@@ -19,8 +19,6 @@ export function Footer() {
 				{t("Open Source")}
 			</Link>
 
-			<p>© 2022</p>
-
 			<Link href="https://ahmed.systems" sx={{ cursor: "pointer" }}>
 				{t("By ahmed.systems")}
 			</Link>

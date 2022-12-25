@@ -16,7 +16,7 @@ export async function apiLocation(location = "Slemani") {
 
 // Tidy the Data gotten from api
 export const organizeAPIData = (data) => {
-	console.log(data);
+	// console.log(data);
 	return {
 		location: {
 			country: data.location.country,

@@ -7,7 +7,7 @@
 ### About:
 A webapp for limited viewing of weather forecasts, in a responsive material design. Available in english and kurdish.
 
-Recently Reworked. Using [React Query](https://react-query-v3.tanstack.com/) + [Jotai](https://jotai.org/) + [Material UI](https://mui.com/), and hosted on [Netlify](https://hawr.netlify.app/).
+Recently Reworked. Using [React Query](https://react-query-v3.tanstack.com/) + [Jotai](https://jotai.org/) + [Material UI](https://mui.com/), and hosted on [Netlify](https://hawr.ahmed.systems/).
 
 ### Features:
 - Weather status and temperature of the current day and the next two. (free api limitation)

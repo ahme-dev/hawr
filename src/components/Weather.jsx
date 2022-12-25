@@ -2,19 +2,16 @@ import React from "react";
 import { Grid, Box, CircularProgress } from "@mui/material";
 import { WeatherDay } from "./WeatherDay";
 
-import { apiKey, organizeAPIData } from "../utils";
-
+import { location, apiKey, organizeAPIData } from "../utils";
 import { useQuery } from "react-query";
-import { useTranslation } from "react-i18next";
-
-let location = "Slemani";
-
-// Weather display (3 Days)
 
 export function Weather() {
-	const { t, i18n } = useTranslation();
+	const colCenterStyle = {
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center",
+	};
 
-	// Query
 	const { isLoading, error, data } = useQuery("forecast", () =>
 		fetch(
 			`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`
@@ -23,31 +20,23 @@ export function Weather() {
 			.then((data) => organizeAPIData(data))
 	);
 
-	// Loading
+	// Render
 
 	if (isLoading)
 		return (
-			<Box
-				sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-			>
+			<Box sx={colCenterStyle}>
 				<p>Loading data...</p>
 				<CircularProgress />
 			</Box>
 		);
 
-	// Error
-
 	if (error)
 		return (
-			<Box
-				sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-			>
+			<Box sx={colCenterStyle}>
 				<p>Data could not be fetched!</p>
 				<p>{error}</p>
 			</Box>
 		);
-
-	// Default
 
 	return (
 		<Grid container spacing={2} sx={{ width: "100%" }}>

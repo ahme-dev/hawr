@@ -1,5 +1,6 @@
 // free api key. steal as you like
 export let apiKey = "74dd9c2c03d4438da6f184612221806";
+export let location = "Slemani";
 
 export async function apiLocation(location = "Slemani") {
 	let url = `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${location}`;

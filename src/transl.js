@@ -24,6 +24,10 @@ const resources = {
 			Date: "بەروار",
 
 			Slemani: "سلێمانی",
+
+			English: "ئینگلیزی",
+			Kurdish: "کوردی",
+			Language: "زمان",
 		},
 	},
 };

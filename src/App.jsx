@@ -1,19 +1,26 @@
 import React from "react";
 import { Container, Box, CssBaseline } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-
 import { Weather } from "./components/Weather";
-
-import { QueryClient, QueryClientProvider } from "react-query";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 
+// store
+import { useAtom } from "jotai";
+import { darkModeAtom } from "./store";
+
+// query
+import { QueryClient, QueryClientProvider } from "react-query";
 const queryClient = new QueryClient();
 
 export default function App() {
+	const [darkMode] = useAtom(darkModeAtom);
+
 	return (
 		<QueryClientProvider client={queryClient}>
-			<ThemeProvider theme={createTheme({ palette: { mode: "dark" } })}>
+			<ThemeProvider
+				theme={createTheme({ palette: { mode: darkMode ? "dark" : "light" } })}
+			>
 				<Container
 					sx={{
 						display: "flex",

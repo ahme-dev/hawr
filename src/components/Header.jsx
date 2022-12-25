@@ -44,10 +44,7 @@ export function Header() {
 					variant="standard"
 					size="small"
 					value={lang}
-					onChange={(e) => {
-						setLang(e.target.value);
-						i18n.changeLanguage(e.target.value);
-					}}
+					onChange={(e) => setLang(e.target.value)}
 				>
 					<MenuItem value={"en"}>{t("English")}</MenuItem>
 					<MenuItem value={"ku"}>{t("Kurdish")}</MenuItem>

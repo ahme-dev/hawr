@@ -28,6 +28,8 @@ const resources = {
 			English: "ئینگلیزی",
 			Kurdish: "کوردی",
 			Language: "زمان",
+			Theme: "ڕەنگ",
+			Options: "گۆڕانکاری",
 
 			Hawr: "هەور",
 		},

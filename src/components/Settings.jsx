@@ -35,7 +35,7 @@ import { darkModeAtom, langAtom } from "../store";
 import { useState } from "react";
 
 export function Settings() {
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 	const [darkMode, setDarkMode] = useAtom(darkModeAtom);
 	const [lang, setLang] = useAtom(langAtom);
 
@@ -43,8 +43,6 @@ export function Settings() {
 
 	// drawer
 	const [open, setOpen] = useState(false);
-
-	const options = <></>;
 
 	// large screens
 	if (largeScreen)
@@ -86,7 +84,7 @@ export function Settings() {
 				>
 					<ListItemButton>
 						<ListItemText
-							primary={t("Menu")}
+							primary={t("Options")}
 							primaryTypographyProps={{
 								fontSize: 20,
 								fontWeight: "medium",
@@ -105,7 +103,7 @@ export function Settings() {
 							<ListItemIcon>
 								<InvertColorsRounded></InvertColorsRounded>
 							</ListItemIcon>
-							<ListItemText>Theme</ListItemText>
+							<ListItemText>{t("Theme")}</ListItemText>
 							<IconButton onClick={() => setDarkMode(!darkMode)}>
 								{darkMode ? <DarkModeRounded /> : <LightModeRounded />}
 							</IconButton>
@@ -117,7 +115,7 @@ export function Settings() {
 							<ListItemIcon>
 								<LanguageRounded></LanguageRounded>
 							</ListItemIcon>
-							<ListItemText>Language</ListItemText>
+							<ListItemText>{t("Language")}</ListItemText>
 							<Select
 								variant="standard"
 								size="small"

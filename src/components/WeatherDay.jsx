@@ -5,15 +5,21 @@ import {
 	CardMedia,
 	Typography,
 } from "@mui/material";
+import { grey } from "@mui/material/colors";
 
 import { useTranslation } from "react-i18next";
 import { WeatherIcon } from "./WeatherIcon";
 
+// store
+import { useAtom } from "jotai";
+import { darkModeAtom } from "../store";
+
 export function WeatherDay(props) {
 	const { t } = useTranslation();
+	const [darkMode] = useAtom(darkModeAtom);
 
 	return (
-		<Card>
+		<Card style={{ backgroundColor: darkMode ? grey[900] : grey[200] }}>
 			{/* Header */}
 			<CardHeader
 				title={t(props.day)}

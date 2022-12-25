@@ -1,9 +1,15 @@
 import { WiDayShowers, WiDaySunny, WiShowers, WiRain } from "react-icons/wi";
 import { blueGrey } from "@mui/material/colors";
 
+// store
+import { darkModeAtom } from "../store";
+import { useAtom } from "jotai";
+
 export function WeatherIcon({ status, image }) {
+	const [darkMode] = useAtom(darkModeAtom);
+
 	const fullWidthHeight = {
-		backgroundColor: blueGrey[900],
+		backgroundColor: darkMode ? blueGrey[900] : blueGrey[100],
 		borderRadius: "50%",
 		padding: "3rem",
 		margin: "0 2rem",

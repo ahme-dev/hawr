@@ -5,10 +5,11 @@
 # Hawr
 
 ### About:
-A webapp for limited viewing of weather forecasts, in kurdish.
+A webapp for limited viewing of weather forecasts, in english and kurdish.
 
-Using Vite + React hosted on [Netlify](https://hawr.netlify.app/) with icons from [icons8](https://icons8.com/) ♥️
+Reworked. Using React + React Query + Jotai + Material UI, and hosted on [Netlify](https://hawr.netlify.app/).
 
 ### Features:
 - Weather status and temperature of the current day and the next two. (free api limitation)
-- Few themes to *not* choose from.
+- Switch between themes.
+- View data in kurdish and english.

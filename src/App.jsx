@@ -3,9 +3,10 @@ import { Container, Box, CssBaseline } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import { Weather } from "./components/Weather";
-import { Search } from "./components/Search";
 
 import { QueryClient, QueryClientProvider } from "react-query";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
 const queryClient = new QueryClient();
 
@@ -24,27 +25,13 @@ export default function App() {
 						"&>*": { width: "100%" },
 					}}
 				>
+					{/* CSS Reset */}
 					<CssBaseline />
 
-					{/* Header */}
-					<Box
-						sx={{
-							display: "flex",
-							justifyContent: "space-between",
-							alignItems: "center",
-						}}
-					>
-						<h2>Hawr</h2>
-						<Search></Search>
-					</Box>
-
-					{/* Main */}
+					{/* Content */}
+					<Header></Header>
 					<Weather></Weather>
-
-					{/* Footer */}
-					<Box sx={{ display: "flex", justifyContent: "center" }}>
-						<p>Footer</p>
-					</Box>
+					<Footer></Footer>
 				</Container>
 			</ThemeProvider>
 		</QueryClientProvider>

@@ -1,14 +1,6 @@
 import React from "react";
-import {
-	Grid,
-	Card,
-	CardMedia,
-	CardContent,
-	Typography,
-	CardHeader,
-	Box,
-	CircularProgress,
-} from "@mui/material";
+import { Grid, Box, CircularProgress } from "@mui/material";
+import { WeatherDay } from "./WeatherDay";
 
 import { apiKey, organizeAPIData } from "../utils";
 
@@ -60,45 +52,14 @@ export function Weather() {
 	return (
 		<Grid container spacing={2} sx={{ width: "100%" }}>
 			<Grid item xs={12} sm={6} md={4}>
-				<Day day={t("Today")} {...data.weather[0]}></Day>
+				<WeatherDay {...data.weather[0]}></WeatherDay>
 			</Grid>
 			<Grid item xs={12} sm={6} md={4}>
-				<Day day={t("Tomorrow")} {...data.weather[1]}></Day>
+				<WeatherDay {...data.weather[1]}></WeatherDay>
 			</Grid>
 			<Grid item xs={12} sm={6} md={4}>
-				<Day day={t("Overmorrow")} {...data.weather[2]}></Day>
+				<WeatherDay {...data.weather[2]}></WeatherDay>
 			</Grid>
 		</Grid>
-	);
-}
-
-// Component for each day
-
-function Day(props) {
-	return (
-		<Card>
-			<CardHeader
-				title={props.day || "Day Unknown"}
-				subheader={
-					props.date ? `Date: ${props.date.slice(5, 10)}` : "Date Unknown"
-				}
-			></CardHeader>
-			<CardMedia
-				sx={{ height: "12rem" }}
-				image={props.weatherIcon || "#"}
-				title="Weather Icon"
-			/>
-			<CardContent>
-				<Typography variant="h5" component="div">
-					{props.weatherStatus || "Weather Unknown"}
-				</Typography>
-				<Typography variant="body" color="text.secondary">
-					{`Temperature: ${props.avgTemperature}℃` || "Temperature Unknown"}
-				</Typography>
-				<Typography variant="body2" color="text.secondary">
-					{`Chance of rain: ${props.rainChance}%`}
-				</Typography>
-			</CardContent>
-		</Card>
 	);
 }

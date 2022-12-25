@@ -24,6 +24,7 @@ export const organizeAPIData = (data) => {
 		},
 		weather: [
 			{
+				day: "Today",
 				weatherStatus: data.forecast.forecastday[0].day.condition.text,
 				weatherIcon: data.forecast.forecastday[0].day.condition.icon,
 				avgTemperature: data.forecast.forecastday[0].day.avgtemp_c,
@@ -31,6 +32,7 @@ export const organizeAPIData = (data) => {
 				date: data.forecast.forecastday[0].date,
 			},
 			{
+				day: "Tomorrow",
 				weatherStatus: data.forecast.forecastday[1].day.condition.text,
 				weatherIcon: data.forecast.forecastday[1].day.condition.icon,
 				avgTemperature: data.forecast.forecastday[1].day.avgtemp_c,
@@ -39,6 +41,7 @@ export const organizeAPIData = (data) => {
 				date: data.forecast.forecastday[1].date,
 			},
 			{
+				day: "Overmorrow",
 				weatherStatus: data.forecast.forecastday[2].day.condition.text,
 				weatherIcon: data.forecast.forecastday[2].day.condition.icon,
 				avgTemperature: data.forecast.forecastday[2].day.avgtemp_c,

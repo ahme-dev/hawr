@@ -14,12 +14,8 @@ export function WeatherDay(props) {
 	return (
 		<Card>
 			<CardHeader
-				title={t(props.day) || t("Day Unknown")}
-				subheader={
-					props.date
-						? `${t("Date")}: ${props.date.slice(5, 10)}`
-						: t("Date Unknown")
-				}
+				title={t(props.day)}
+				subheader={`${t("Date")}: ${props.date.slice(5, 10)}`}
 			></CardHeader>
 			<CardMedia
 				sx={{ height: "12rem" }}
@@ -28,11 +24,10 @@ export function WeatherDay(props) {
 			/>
 			<CardContent>
 				<Typography variant="h5" component="div">
-					{t(props.weatherStatus) || t("Weather Unknown")}
+					{t(props.weatherStatus)}
 				</Typography>
 				<Typography variant="body" color="text.secondary">
-					{`${t("Temperature")}: ${props.avgTemperature}℃` ||
-						"Temperature Unknown"}
+					{`${t("Temperature")}: ${props.avgTemperature}℃`}
 				</Typography>
 				<Typography variant="body2" color="text.secondary">
 					{`${t("Chance of rain")}: ${props.rainChance}%`}

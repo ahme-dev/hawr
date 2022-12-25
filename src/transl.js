@@ -5,9 +5,7 @@ import { initReactI18next } from "react-i18next";
 const resources = {
 	en: {
 		translation: {
-			Today: "Today",
-			Tomorrow: "Tomorrow",
-			Overmorrow: "Overmorrow",
+			// no need for translation
 		},
 	},
 	ku: {
@@ -15,6 +13,17 @@ const resources = {
 			Today: "ئەمڕۆ",
 			Tomorrow: "بەیانی",
 			Overmorrow: "دووبەیانی",
+
+			Sunny: "هەتاو",
+			"Heavy rain": "بارانی زۆر",
+			"Patchy rain": "نمە باران",
+			"Patchy rain possible": "بارانی کەم بەئەگەر",
+
+			Temperature: "پلەی گەرمی",
+			"Chance of rain": "ئەگەری باران",
+			Date: "بەروار",
+
+			Slemani: "سلێمانی",
 		},
 	},
 };

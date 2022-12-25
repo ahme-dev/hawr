@@ -6,22 +6,48 @@ import {
 	CardContent,
 	Typography,
 	CardHeader,
+	Box,
+	CircularProgress,
 } from "@mui/material";
 
 import { useQuery } from "react-query";
 let key = "74dd9c2c03d4438da6f184612221806";
 let location = "Slemani";
 
+// Weather display (3 Days)
+
 export function Weather() {
-	const { isLoading, error, data } = useQuery("repoData", () =>
+	const { isLoading, error, data } = useQuery("forecast", () =>
 		fetch(
 			`https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${location}&days=3&aqi=no&alerts=no`
 		).then((res) => res.json())
 	);
 
-	if (isLoading) return "Loading data...";
+	// Loading
 
-	if (error) return "Could not load the data!";
+	if (isLoading)
+		return (
+			<Box
+				sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+			>
+				<h4>Loading data...</h4>
+				<CircularProgress />
+			</Box>
+		);
+
+	// Error
+
+	if (error)
+		return (
+			<Box
+				sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+			>
+				<h4>Data could not be fetched!</h4>
+				<p>{error}</p>
+			</Box>
+		);
+
+	// Default
 
 	return (
 		<Grid container spacing={2} sx={{ width: "100%" }}>
@@ -49,6 +75,8 @@ export function Weather() {
 		</Grid>
 	);
 }
+
+// Component for each day
 
 function Day(props) {
 	return (

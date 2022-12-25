@@ -18,7 +18,7 @@ export function WeatherDay(props) {
 				subheader={`${t("Date")}: ${props.date.slice(5, 10)}`}
 			></CardHeader>
 			<CardMedia
-				sx={{ height: "12rem" }}
+				sx={{ height: "10rem" }}
 				image={props.weatherIcon || "#"}
 				title="Weather Icon"
 			/>
@@ -26,10 +26,10 @@ export function WeatherDay(props) {
 				<Typography variant="h5" component="div">
 					{t(props.weatherStatus)}
 				</Typography>
-				<Typography variant="body" color="text.secondary">
+				<Typography variant="body2" color="text.secondary">
 					{`${t("Temperature")}: ${props.avgTemperature}℃`}
 				</Typography>
-				<Typography variant="body2" color="text.secondary">
+				<Typography variant="body" color="text.secondary">
 					{`${t("Chance of rain")}: ${props.rainChance}%`}
 				</Typography>
 			</CardContent>

@@ -32,7 +32,7 @@ export function Header() {
 			<h2>{t("Hawr")}</h2>
 
 			{/* Dark Mode */}
-			<div style={{ display: "flex", gap: "1rem" }}>
+			<div style={{ display: "flex", gap: "0.5rem" }}>
 				<IconButton
 					aria-label="Change Theme"
 					onClick={() => setDarkMode(!darkMode)}

@@ -44,7 +44,8 @@ const resources = {
 			Language: "زمان",
 			Theme: "ڕەنگ",
 			Options: "گۆڕانکاری",
-
+			"Open Source": "کۆدی کراوەیە",
+			"By ahmed.systems": "لەلایەن ahmed.systems",
 			Hawr: "هەور",
 		},
 	},

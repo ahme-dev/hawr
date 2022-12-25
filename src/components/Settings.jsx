@@ -39,6 +39,7 @@ export function Settings() {
 	const [darkMode, setDarkMode] = useAtom(darkModeAtom);
 	const [lang, setLang] = useAtom(langAtom);
 
+	// media query for screen size
 	const largeScreen = useMediaQuery(`(min-width:600px)`);
 
 	// drawer

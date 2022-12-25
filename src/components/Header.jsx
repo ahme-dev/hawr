@@ -1,4 +1,13 @@
-import { Box, MenuItem, Select, Switch } from "@mui/material";
+import {
+	Box,
+	Button,
+	FormControlLabel,
+	IconButton,
+	MenuItem,
+	Select,
+	Switch,
+} from "@mui/material";
+import { DarkModeRounded, LightModeRounded } from "@mui/icons-material";
 
 // store
 import { useAtom } from "jotai";
@@ -20,23 +29,30 @@ export function Header() {
 			}}
 		>
 			{/* Title */}
-			<h2>Hawr</h2>
+			<h2>{t("Hawr")}</h2>
 
 			{/* Dark Mode */}
-			<Switch checked={darkMode} onClick={() => setDarkMode(!darkMode)} />
+			<div style={{ display: "flex", gap: "1rem" }}>
+				<IconButton
+					aria-label="Change Theme"
+					onClick={() => setDarkMode(!darkMode)}
+				>
+					{darkMode ? <DarkModeRounded /> : <LightModeRounded />}
+				</IconButton>
 
-			{/* Language */}
-			<Select
-				value={lang}
-				onChange={(e) => {
-					console.log("tarVal:" + e.target.value);
-					setLang(e.target.value);
-					i18n.changeLanguage(e.target.value);
-				}}
-			>
-				<MenuItem value={"en"}>{t("English")}</MenuItem>
-				<MenuItem value={"ku"}>{t("Kurdish")}</MenuItem>
-			</Select>
+				<Select
+					variant="standard"
+					size="small"
+					value={lang}
+					onChange={(e) => {
+						setLang(e.target.value);
+						i18n.changeLanguage(e.target.value);
+					}}
+				>
+					<MenuItem value={"en"}>{t("English")}</MenuItem>
+					<MenuItem value={"ku"}>{t("Kurdish")}</MenuItem>
+				</Select>
+			</div>
 		</Box>
 	);
 }

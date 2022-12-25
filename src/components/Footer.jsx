@@ -1,9 +1,11 @@
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
 export function Footer() {
 	return (
 		<Box sx={{ display: "flex", justifyContent: "center" }}>
-			<p>Footer</p>
+			<Button href="https://ahmed.systems" color="success">
+				© 2022 - ahmed.systems
+			</Button>
 		</Box>
 	);
 }

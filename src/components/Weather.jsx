@@ -13,12 +13,16 @@ import {
 import { apiKey, organizeAPIData } from "../utils";
 
 import { useQuery } from "react-query";
+import { useTranslation } from "react-i18next";
 
 let location = "Slemani";
 
 // Weather display (3 Days)
 
 export function Weather() {
+	const { t, i18n } = useTranslation();
+
+	// Query
 	const { isLoading, error, data } = useQuery("forecast", () =>
 		fetch(
 			`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`
@@ -34,7 +38,7 @@ export function Weather() {
 			<Box
 				sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
 			>
-				<h4>Loading data...</h4>
+				<p>Loading data...</p>
 				<CircularProgress />
 			</Box>
 		);
@@ -46,7 +50,7 @@ export function Weather() {
 			<Box
 				sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
 			>
-				<h4>Data could not be fetched!</h4>
+				<p>Data could not be fetched!</p>
 				<p>{error}</p>
 			</Box>
 		);
@@ -56,13 +60,13 @@ export function Weather() {
 	return (
 		<Grid container spacing={2} sx={{ width: "100%" }}>
 			<Grid item xs={12} sm={6} md={4}>
-				<Day day="Today" {...data.weather[0]}></Day>
+				<Day day={t("Today")} {...data.weather[0]}></Day>
 			</Grid>
 			<Grid item xs={12} sm={6} md={4}>
-				<Day day="Tomorrow" {...data.weather[1]}></Day>
+				<Day day={t("Tomorrow")} {...data.weather[1]}></Day>
 			</Grid>
 			<Grid item xs={12} sm={6} md={4}>
-				<Day day="Overmorrow" {...data.weather[2]}></Day>
+				<Day day={t("Overmorrow")} {...data.weather[2]}></Day>
 			</Grid>
 		</Grid>
 	);
